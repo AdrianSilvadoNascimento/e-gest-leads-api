@@ -5,6 +5,8 @@ import { LeadsModule } from './domain/leads/leads.module';
 
 import { PrismaService } from './database/prisma.service';
 
+import { AppController } from './app.controller';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -13,7 +15,7 @@ import { PrismaService } from './database/prisma.service';
     }),
     LeadsModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [PrismaService],
 })
 export class AppModule { }
