@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Query } from '@nestjs/common';
 
 import { LeadsService } from '../services/leads.service';
 
@@ -19,5 +19,10 @@ export class LeadsController {
     const parsedPage = parseInt(page);
     const parsedLimit = parseInt(limit);
     return this.service.list(parsedPage, parsedLimit);
+  }
+
+  @Delete('/:id')
+  async delete(@Param('id') emailId: string): Promise<LeadEntity> {
+    return this.service.delete(emailId);
   }
 }

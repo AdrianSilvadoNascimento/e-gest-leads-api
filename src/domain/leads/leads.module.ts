@@ -7,7 +7,18 @@ import { LeadsRepository } from './repositories/abstract/leads.repository';
 
 import { LeadsController } from './controllers/leads.controller';
 
+import { ClientsModule } from '@nestjs/microservices';
+import { getRabbitMQConfig } from '../../config/rabbitmq.config';
+
 @Module({
+  imports: [
+    ClientsModule.register([
+      {
+        name: 'LEADS_SERVICE',
+        ...getRabbitMQConfig(),
+      },
+    ]),
+  ],
   controllers: [LeadsController],
   providers: [PrismaService, LeadsService, { provide: LeadsRepository, useClass: LeadsRepo }],
   exports: [LeadsService, { provide: LeadsRepository, useClass: LeadsRepo }],

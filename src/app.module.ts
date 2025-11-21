@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 import { LeadsModule } from './domain/leads/leads.module';
+import { NotificationsModule } from './notifications/notifications.module';
 
 import { PrismaService } from './database/prisma.service';
 
@@ -13,7 +14,8 @@ import { AppController } from './app.controller';
       isGlobal: true,
       envFilePath: '.env',
     }),
-    LeadsModule
+    LeadsModule,
+    NotificationsModule
   ],
   controllers: [AppController],
   providers: [PrismaService],

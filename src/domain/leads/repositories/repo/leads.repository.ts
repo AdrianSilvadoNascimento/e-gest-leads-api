@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from "@nestjs/common";
+import { Injectable, InternalServerErrorException, NotFoundException } from "@nestjs/common";
 
 import { PrismaService } from "../../../../database/prisma.service";
 
@@ -42,6 +42,22 @@ export class LeadsRepo implements LeadsRepository {
       const hasPrev = page > 1;
       const prev = hasPrev ? page - 1 : 0;
       return { data, next, prev, total: data.length }
+    } catch (error) {
+      console.error(error)
+      throw new InternalServerErrorException(error)
+    }
+  }
+
+  async delete(emailId: string): Promise<LeadEntity> {
+    try {
+      const email = await this.prisma.lead.findUnique({
+        where: { id: emailId },
+      })
+
+      if (!email) throw new NotFoundException();
+      return await this.prisma.lead.delete({
+        where: { id: emailId },
+      })
     } catch (error) {
       console.error(error)
       throw new InternalServerErrorException(error)
