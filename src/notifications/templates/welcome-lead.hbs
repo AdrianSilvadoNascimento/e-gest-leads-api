@@ -46,10 +46,21 @@
 
       /* Header com o Logo */
       .header {
-        background-color: #ffffff;
+        background: #1E40AF;
+        background: radial-gradient(circle,rgba(30, 64, 175, 1) 0%, rgba(37, 99, 235, 1) 50%, rgba(34, 184, 230, 1) 100%);
         padding: 30px 40px;
         text-align: center;
         border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        vertical-align: middle;
+      }
+
+      .header>h3 {
+        width: 100%;
+        color: #fff;
+        font-weight: 600;
+        font-size: 32px;
+        text-align: center;
       }
 
       /* Corpo do Email */
@@ -126,6 +137,9 @@
         .header {
           padding: 20px !important;
         }
+        .header>h3 {
+          font-size: 24px;
+        }
         .headline {
           font-size: 20px !important;
         }
@@ -141,60 +155,14 @@
         <!-- HEADER: Logo -->
         <tr>
           <td class='header'>
-            <!-- 
-                        DICA: Substitua o SVG abaixo pela URL da sua imagem hospedada (ex: seu-site.com/logo.png) 
-                        para garantir que apareça em todos os emails. Como este é um preview, coloquei o SVG inline.
-                    -->
-            <svg
-              width='60'
-              height='60'
-              viewBox='0 0 100 100'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <rect
-                x='25'
-                y='25'
-                width='50'
-                height='50'
-                rx='4'
-                fill='#2563eb'
-              />
-              <path d='M25 25 L40 15 L90 15 L75 25' fill='#60a5fa' />
-              <path d='M75 25 L90 15 L90 65 L75 75' fill='#1e40af' />
-              <!-- Detalhes das "cantoneiras" brancas do seu logo original -->
-              <path
-                d='M20 20 H35 M20 20 V35'
-                stroke='white'
-                stroke-width='4'
-                stroke-linecap='round'
-              />
-              <path
-                d='M80 20 H65 M80 20 V35'
-                stroke='white'
-                stroke-width='4'
-                stroke-linecap='round'
-              />
-              <path
-                d='M20 80 H35 M20 80 V65'
-                stroke='white'
-                stroke-width='4'
-                stroke-linecap='round'
-              />
-              <path
-                d='M80 80 H65 M80 80 V65'
-                stroke='white'
-                stroke-width='4'
-                stroke-linecap='round'
-              />
-            </svg>
+            <h3>Quobo</h3>
           </td>
         </tr>
 
         <!-- CONTEÚDO PRINCIPAL -->
         <tr>
           <td class='content'>
-            <h1 class='headline'>Você está dentro! 🚀</h1>
+            <h1 class='headline'>Você está na fila de espera! 🚀</h1>
 
             <p class='text-body'>
               Olá,
@@ -218,10 +186,11 @@
               <a href='mailto:{{email}}' class='user-email'>{{email}}</a>
             </div>
 
+            <!-- Ainda não há redes sociais
             <p class='text-body'>
               Enquanto isso, fique à vontade para nos acompanhar nas redes
               sociais.
-            </p>
+            </p>-->
 
             <div class='button-container'>
               <!-- Link do seu site ou rede social -->
