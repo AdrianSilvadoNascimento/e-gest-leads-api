@@ -69,7 +69,7 @@ $ gcloud auth login
 
 ```bash
 gcloud config set project quobo-app
-gcloud gcloud builds submit --config cloudbuild.yaml .
+gcloud builds submit --config cloudbuild.yaml .
 gcloud beta run deploy leads-production --image gcr.io/quobo-app/leads-production --region us-east1 --platform managed
 ```
 
